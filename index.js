@@ -7,6 +7,8 @@ const downBtn = document.querySelector(".down");
 
 // div that display the score
 const scoreDisplay = document.querySelector("#score");
+// disply for gameover
+const gameOverDisplay = document.querySelector("#game-over");
 
 // stats for game
 const stats = {
@@ -202,5 +204,6 @@ const gameStart = setInterval(() => {
 
   if (snake.isDead()) {
     clearInterval(gameStart);
+    gameOverDisplay.classList.remove("hide");
   }
 }, 300);
