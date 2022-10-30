@@ -5,10 +5,28 @@ const rightBtn = document.querySelector(".right");
 const leftBtn = document.querySelector(".left");
 const downBtn = document.querySelector(".down");
 
+// div that display the score
+const scoreDisplay = document.querySelector("#score");
+
+// stats for game
+const stats = {
+  // score is negative one because when game is started the snake has 1 score
+  score: -1,
+};
+
 downBtn.addEventListener("click", () => snake.setDirection(movement.DOWN));
 upBtn.addEventListener("click", () => snake.setDirection(movement.UP));
 rightBtn.addEventListener("click", () => snake.setDirection(movement.RIGHT));
 leftBtn.addEventListener("click", () => snake.setDirection(movement.LEFT));
+
+// append value to score
+const updateScore = (value) => {
+  // update current score
+  stats.score += value;
+  //update displayed score
+  // add 1 since score is starting with -1
+  scoreDisplay.innerHTML = stats.score + 1;
+};
 
 const snakeHeadPosition = () => {
   return cell.findIndex((value) => value.classList.contains("snake-head"));
@@ -62,10 +80,18 @@ const snake = {
   },
   eat: function () {
     if (food.position === this.head) {
+      // update score when a fruit is eaten.
+      updateScore(1);
+
+      // remove food in display
       cell[food.position].classList.remove("snake-food");
       food.available = false;
       food.position = -1;
+
+      //grow snake body when food is eaten
       this.grow();
+
+      console.log(stats.score);
     }
   },
   setDirection: function (direction) {
