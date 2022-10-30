@@ -25,3 +25,19 @@
 .snake-food {
   background-color: #5cb85c;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+#game-over {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  color: white;
+  font-size: 2rem;
+}
