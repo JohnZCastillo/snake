@@ -19,7 +19,10 @@
 }
 
 .snake-head {
-  background-color: #d9534f;
+  background-image: url("./head.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .snake-food {
