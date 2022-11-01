@@ -4,6 +4,7 @@ const upBtn = document.querySelector(".up");
 const rightBtn = document.querySelector(".right");
 const leftBtn = document.querySelector(".left");
 const downBtn = document.querySelector(".down");
+const startBtn = document.querySelector("#game-start");
 
 // div that display the score
 const scoreDisplay = document.querySelector("#score");
@@ -20,6 +21,9 @@ downBtn.addEventListener("click", () => snake.setDirection(movement.DOWN));
 upBtn.addEventListener("click", () => snake.setDirection(movement.UP));
 rightBtn.addEventListener("click", () => snake.setDirection(movement.RIGHT));
 leftBtn.addEventListener("click", () => snake.setDirection(movement.LEFT));
+
+// game status eg start | pause | gameover
+let gameStatus = 0;
 
 // append value to score
 const updateScore = (value) => {
@@ -176,11 +180,7 @@ const move = () => {
   snake.head = next;
 };
 
-snake.head = snakeHeadPosition();
-snake.body.push(snake.head);
-
 window.addEventListener("keydown", (event) => {
-  console.log(event);
   switch (event.key) {
     case "ArrowLeft":
       snake.setDirection(movement.LEFT);
@@ -197,13 +197,45 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-const gameStart = setInterval(() => {
-  food.show();
-  snake.eat();
-  trail();
+const gameRestart = () => {
+  // let the snake body to be head
+  snake.body = [];
 
-  if (snake.isDead()) {
-    clearInterval(gameStart);
-    gameOverDisplay.classList.remove("hide");
+  // show snake position
+  snake.head = snakeHeadPosition();
+
+  //mark the head as a part of the body
+  snake.body.push(snake.head);
+
+  // remove from cell the classname of 'snake-body'
+  cell.forEach((box) => {
+    box.classList.remove("snake-body");
+  });
+};
+
+const gameStart = () => {
+  const interval = setInterval(() => {
+    // show food
+    food.show();
+
+    snake.eat();
+
+    // show trail
+    trail();
+
+    if (snake.isDead()) {
+      clearInterval(interval);
+      gameOverDisplay.classList.remove("hide");
+    }
+  }, 300);
+};
+
+startBtn.addEventListener("click", () => {
+  if (gameStatus === 0 || snake.isDead()) {
+    // restart the game so that snake has 0 body
+    gameRestart();
+
+    gameStatus = 1;
+    gameStart();
   }
-}, 300);
+});
