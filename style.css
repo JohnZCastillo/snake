@@ -15,7 +15,10 @@
 }
 
 .snake-body {
-  background-color: #f0ad4e;
+  background-image: url("./body.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .snake-head {
@@ -26,7 +29,10 @@
 }
 
 .snake-food {
-  background-color: #5cb85c;
+  background-image: url("./apple.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .hide {
