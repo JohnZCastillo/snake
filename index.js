@@ -86,11 +86,12 @@ const snake = {
   },
   eat: function () {
     if (food.position === this.head) {
+      // remove food in display
+      cell[food.position].classList.remove("snake-food");
+
       // update score when a fruit is eaten.
       updateScore(1);
 
-      // remove food in display
-      cell[food.position].classList.remove("snake-food");
       food.available = false;
       food.position = -1;
 

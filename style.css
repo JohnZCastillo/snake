@@ -22,14 +22,15 @@
 }
 
 .snake-head {
-  background-image: url("./head.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-image: url("./head.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  z-index: 999;
 }
 
 .snake-food {
-  background-image: url("./apple.jpg");
+  background-image: url("./food.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
