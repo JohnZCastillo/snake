@@ -8,8 +8,8 @@
   background-color: #292b2c;
 }
 .cell {
-  width: 25px;
-  height: 25px;
+  width: 26px;
+  height: 26px;
   background-color: #292b2c;
 }
 
@@ -54,6 +54,9 @@
   font-size: 2rem;
 }
 
+.control {
+  padding: 10px 20px;
+}
 .score-board {
   color: white;
 }
