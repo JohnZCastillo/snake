@@ -6,7 +6,7 @@ const leftBtn = document.querySelector("#left");
 const downBtn = document.querySelector("#down");
 const startBtn = document.querySelector("#game-start");
 
-const audio = new Audio("./eatSound.mp3");
+const audio = new Audio("./eat.m4a");
 audio.loop = false;
 
 // div that display the score
