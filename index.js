@@ -6,6 +6,9 @@ const leftBtn = document.querySelector("#left");
 const downBtn = document.querySelector("#down");
 const startBtn = document.querySelector("#game-start");
 
+const audio = new Audio("./eatSound.mp3");
+audio.loop = false;
+
 // div that display the score
 const scoreDisplay = document.querySelector("#score");
 // disply for gameover
@@ -86,6 +89,8 @@ const snake = {
   },
   eat: function () {
     if (food.position === this.head) {
+      audio.play();
+
       // remove food in display
       cell[food.position].classList.remove("snake-food");
 
@@ -199,6 +204,9 @@ window.addEventListener("keydown", (event) => {
 });
 
 const gameRestart = () => {
+  scoreDisplay.innerHTML = 0;
+  stats.score = -1;
+
   // let the snake body to be head
   snake.body = [];
 
