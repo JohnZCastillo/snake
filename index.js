@@ -11,8 +11,6 @@ audio.loop = false;
 
 // div that display the score
 const scoreDisplay = document.querySelector("#score");
-// disply for gameover
-const gameOverDisplay = document.querySelector("#game-over");
 
 // stats for game
 const stats = {
@@ -234,7 +232,7 @@ const gameStart = () => {
 
     if (snake.isDead()) {
       clearInterval(interval);
-      gameOverDisplay.classList.remove("hide");
+      alert("Game Over!");
     }
   }, 300);
 };

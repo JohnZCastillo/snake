@@ -49,9 +49,10 @@
 #game-over {
   position: absolute;
   top: 50%;
-  right: 50%;
+  right: auto;
   color: white;
   font-size: 2rem;
+  z-index: 999;
 }
 
 .control {
