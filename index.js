@@ -1,9 +1,9 @@
 const cell = Array.from(document.querySelectorAll(".cell"));
 
-const upBtn = document.querySelector(".up");
-const rightBtn = document.querySelector(".right");
-const leftBtn = document.querySelector(".left");
-const downBtn = document.querySelector(".down");
+const upBtn = document.querySelector("#up");
+const rightBtn = document.querySelector("#right");
+const leftBtn = document.querySelector("#left");
+const downBtn = document.querySelector("#down");
 const startBtn = document.querySelector("#game-start");
 
 // div that display the score
